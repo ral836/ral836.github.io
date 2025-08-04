@@ -57,6 +57,37 @@ h1, h2 {
     opacity: 0.3;
 }
 
+/* 粒子特效 */
+.background-wrapper::before, .background-wrapper::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: floating 20s infinite ease-in-out;
+    opacity: 0.5;
+}
+
+.background-wrapper::before {
+    width: 20px;
+    height: 20px;
+    top: 10%;
+    left: 15%;
+    animation-delay: 2s;
+}
+
+.background-wrapper::after {
+    width: 30px;
+    height: 30px;
+    bottom: 5%;
+    right: 20%;
+    animation-delay: 5s;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.2); }
+}
+
 .container {
     max-width: 800px;
     margin: 40px auto;
@@ -67,7 +98,7 @@ h1, h2 {
     overflow: hidden;
 }
 
-/* 卡片样式 */
+/* 卡片样式和动画 */
 .header-card, .info-card, .footer-card {
     background: var(--card-bg-color);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -76,6 +107,7 @@ h1, h2 {
     margin-bottom: 25px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* 为伪元素定位 */
 }
 
 .info-card {
@@ -87,8 +119,37 @@ h1, h2 {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* 头像和社交链接 */
+/* 卡片边框闪烁特效 */
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 17px;
+    background: linear-gradient(45deg, #ff69b4, #e91e63, #ffb6c1, #e91e63, #ff69b4);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: glowing 10s infinite linear;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.info-card:hover::before {
+    opacity: 1;
+}
+
+@keyframes glowing {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 修复头像问题 */
 .avatar-container {
+    /* 移除掉不必要的 width 和 height，让头像自然显示 */
+    display: inline-block;
     margin-bottom: 20px;
 }
 
@@ -97,13 +158,13 @@ h1, h2 {
     height: 120px;
     border-radius: 50%;
     border: 5px solid var(--primary-color);
-    object-fit: cover;
+    object-fit: cover; /* 确保图片不变形 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
 
 .avatar:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
 }
 
 .social-links {
@@ -119,12 +180,11 @@ h1, h2 {
 
 .social-icon:hover {
     color: var(--link-hover-color);
-    transform: scale(1.2);
+    transform: scale(1.2) rotate(-5deg);
 }
 
-/* 列表和链接 */
 .project-list {
-    list-style-type: '🌸'; /* 用可爱的小花作为列表标记 */
+    list-style-type: '🌸';
     padding-left: 20px;
 }
 
@@ -144,7 +204,6 @@ h1, h2 {
     text-decoration: underline;
 }
 
-/* 简单的进入动画 */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
