@@ -3,44 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的小花园 - 个人网站</title>
+    <title>甜心小屋</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="background"></div>
     <div class="container">
         <header>
-            <div class="profile-card fade-in">
-                <img src="avatar.jpg" alt="头像" class="avatar">
-                <h1 class="fade-in-down">可爱少女的名字</h1>
-                <p class="fade-in-up">你的座右铭或简介</p>
-                <div class="social-links fade-in">
-                    <a href="https://t.me/your_telegram_username" target="_blank" title="Telegram">
-                        <i class="fab fa-telegram fa-2x"></i>
-                    </a>
-                    <a href="https://github.com/your_github_username" target="_blank" title="GitHub">
-                        <i class="fab fa-github fa-2x"></i>
-                    </a>
-                </div>
+            <div class="profile-image">
+                <img src="your-profile-image.jpg" alt="我的头像">
             </div>
+            <h1 class="fade-in-down">你的昵称</h1>
+            <p class="fade-in-up">一句可爱的标语或心情语</p>
+            <div class="social-links fade-in">
+                <a href="https://t.me/your_telegram_username" target="_blank" title="我的 Telegram"><i class="fab fa-telegram"></i></a>
+                </div>
         </header>
         <section class="info-section fade-in">
-            <h2>关于我</h2>
-            <p>在这里写一段关于你的介绍，例如你的爱好、喜欢的动漫、或者一些小小的日常心情。让它充满你的个人风格吧！</p>
+            <h2><i class="fas fa-heart"></i> 关于我</h2>
+            <p>这里可以写一些关于你的可爱的小秘密或者兴趣爱好。用一些轻松愉快的语气来描述自己吧！</p>
         </section>
         <section class="info-section fade-in">
-            <h2>我的小日常</h2>
+            <h2><i class="fas fa-sparkles"></i> 我的小窝</h2>
+            <p>分享一些你喜欢的东西，可以是照片、音乐或者其他有趣的内容。</p>
             <ul>
-                <li><span>🌱</span> 今天天气真好，去公园散步啦～</li>
-                <li><span>🎨</span> 沉迷于绘画中，画了一只可爱的小猫咪！</li>
-                <li><span>🎶</span> 听着喜欢的音乐，感觉世界都变得温柔了。</li>
-            </ul>
+                <li><i class="fas fa-star"></i> 分享一些开心的瞬间</li>
+                <li><i class="fas fa-music"></i> 我最近喜欢的歌曲</li>
+                </ul>
         </section>
         <footer class="fade-in">
-            <p>&copy; 2025 小花园. All rights reserved.</p>
+            <p><i class="far fa-copyright"></i> 2025 你的昵称. All rights reserved. <i class="fas fa-magic"></i></p>
         </footer>
     </div>
+
+    <div id="heart-container"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heartContainer = document.getElementById('heart-container');
+
+            document.addEventListener('click', function(e) {
+                const x = e.clientX;
+                const y = e.clientY;
+
+                const heart = document.createElement('span');
+                heart.classList.add('heart');
+                heart.style.left = x + 'px';
+                heart.style.top = y + 'px';
+                heart.innerHTML = '💖';
+
+                heartContainer.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 1000); // 爱心持续 1 秒后消失
+            });
+        });
+    </script>
 </body>
 </html>
