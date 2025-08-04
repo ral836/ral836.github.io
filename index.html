@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人网站</title>
+    <title>我的小花园 - 个人网站</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="background"></div>
     <div class="container">
         <header>
-            <h1 class="fade-in-down">你的名字</h1>
-            <p class="fade-in-up">个人简介或座右铭</p>
+            <div class="profile-card fade-in">
+                <img src="avatar.jpg" alt="头像" class="avatar">
+                <h1 class="fade-in-down">可爱少女的名字</h1>
+                <p class="fade-in-up">你的座右铭或简介</p>
+                <div class="social-links fade-in">
+                    <a href="https://t.me/your_telegram_username" target="_blank" title="Telegram">
+                        <i class="fab fa-telegram fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/your_github_username" target="_blank" title="GitHub">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                </div>
+            </div>
         </header>
         <section class="info-section fade-in">
             <h2>关于我</h2>
-            <p>在这里写一段关于你的介绍，例如你的兴趣、技能或者经历。你可以随意添加、修改或删除这部分内容。</p>
+            <p>在这里写一段关于你的介绍，例如你的爱好、喜欢的动漫、或者一些小小的日常心情。让它充满你的个人风格吧！</p>
         </section>
         <section class="info-section fade-in">
-            <h2>我的项目</h2>
+            <h2>我的小日常</h2>
             <ul>
-                <li><a href="#">项目一：项目名称</a> - 项目简介</li>
-                <li><a href="#">项目二：项目名称</a> - 项目简介</li>
+                <li><span>🌱</span> 今天天气真好，去公园散步啦～</li>
+                <li><span>🎨</span> 沉迷于绘画中，画了一只可爱的小猫咪！</li>
+                <li><span>🎶</span> 听着喜欢的音乐，感觉世界都变得温柔了。</li>
             </ul>
         </section>
         <footer class="fade-in">
-            <p>&copy; 2025 你的名字. All rights reserved.</p>
+            <p>&copy; 2025 小花园. All rights reserved.</p>
         </footer>
     </div>
 </body>

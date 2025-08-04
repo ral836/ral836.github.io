@@ -1,13 +1,14 @@
 /* 全局样式和动画效果 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=ZCOOL+XiaoWei&display=swap');
 
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Noto Sans SC', sans-serif;
-    color: #333;
-    line-height: 1.6;
+    font-family: 'ZCOOL XiaoWei', serif; /* 更柔和的手写风格字体 */
+    color: #666; /* 稍微浅一些的文字颜色 */
+    line-height: 1.7;
     height: 100%;
+    background-color: #fce4ec; /* 一个柔和的粉色作为备用背景色 */
 }
 
 .background {
@@ -19,44 +20,92 @@ body, html {
     background-image: url('https://i1.qyimage.store/i/1656c13ae9194fc6'); /* 替换成你的图片路径 */
     background-size: cover;
     background-position: center;
-    filter: blur(5px); /* 背景虚化效果，你可以调整数值 */
+    filter: blur(3px); /* 轻微的背景虚化效果 */
+    opacity: 0.8; /* 让背景稍微柔和一些 */
     z-index: -1;
 }
 
 .container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.7); /* 半透明白色背景 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px); /* 磨砂玻璃效果，仅部分浏览器支持 */
+    max-width: 700px; /* 稍微窄一些的内容宽度 */
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.8); /* 半透明白色背景，稍微降低透明度 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 15px; /* 更圆润的边框 */
+    backdrop-filter: blur(15px); /* 更强的磨砂玻璃效果 */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* 增加一个半透明的边框 */
 }
 
 header {
     text-align: center;
-    margin-bottom: 40px;
-}
-
-header h1 {
-    font-size: 3em;
-    color: #444;
-    font-weight: 700;
-}
-
-header p {
-    font-size: 1.2em;
-    color: #666;
-}
-
-.info-section {
     margin-bottom: 30px;
 }
 
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border: 5px solid #f8bbd0; /* 粉色的头像边框 */
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #e91e63; /* 少女粉主题色 */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #9c27b0; /* 略深的紫色，与粉色搭配 */
+    margin-top: 0;
+    font-style: italic;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.5em;
+    color: #f06292; /* 另一个粉色 */
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+.info-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* 稍微不那么透明 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
 .info-section h2 {
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 5px;
-    color: #555;
+    border-bottom: 2px dashed #f48fb1; /* 虚线边框更可爱 */
+    padding-bottom: 10px;
+    color: #e91e63;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+.info-section h2 i {
+    margin-right: 5px;
 }
 
 ul {
@@ -64,23 +113,37 @@ ul {
     padding: 0;
 }
 
+ul li {
+    margin-bottom: 10px;
+    color: #777;
+}
+
+ul li i {
+    margin-right: 8px;
+    color: #f8bbd0;
+}
+
 ul li a {
     text-decoration: none;
-    color: #007bff;
+    color: #f06292;
     transition: color 0.3s ease;
 }
 
 ul li a:hover {
-    color: #0056b3;
+    color: #e91e63;
 }
 
 footer {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid #eee;
-    font-size: 0.9em;
-    color: #999;
+    border-top: 1px dotted #f48fb1; /* 虚线边框 */
+    font-size: 0.85em;
+    color: #b388ff; /* 紫色 */
+}
+
+footer i {
+    margin: 0 5px;
 }
 
 /* 简单的进入动画 */
@@ -90,15 +153,43 @@ footer {
 }
 
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
+    from { opacity: 0; transform: translateY(-30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in { animation: fadeIn 1s ease-out; }
 .fade-in-down { animation: fadeInDown 1s ease-out; }
 .fade-in-up { animation: fadeInUp 1s ease-out; }
+
+/* 爱心冒泡特效 */
+#heart-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 让点击事件穿透到下方的元素 */
+}
+
+.heart {
+    position: absolute;
+    font-size: 1.2em;
+    animation: floatUp 1s linear forwards;
+    opacity: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 0.8;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+    }
+}
