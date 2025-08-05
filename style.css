@@ -16,6 +16,7 @@ body, html {
     color: var(--text-color);
     line-height: 1.6;
     height: 100%;
+    cursor: none; /* 隐藏默认光标 */
 }
 
 h1, h2 {
@@ -39,10 +40,10 @@ h1, h2 {
 .background-image {
     width: 100%;
     height: 100%;
-    background-image: url('https://i1.qyimage.store/i/1656c13ae9194fc6'); /* 替换为你的背景图 */
+    background-image: url('https://i1.qyimage.store/i/1656c13ae9194fc6');
     background-size: cover;
     background-position: center;
-    filter: blur(8px); /* 背景虚化效果 */
+    filter: blur(8px);
     transform: scale(1.1);
     transition: all 0.5s ease-in-out;
 }
@@ -57,45 +58,25 @@ h1, h2 {
     opacity: 0.3;
 }
 
-/* 粒子特效 */
-.background-wrapper::before, .background-wrapper::after {
-    content: '';
+/* 动态背景 canvas 样式 */
+#starry-sky {
     position: absolute;
-    background-color: white;
-    border-radius: 50%;
-    animation: floating 20s infinite ease-in-out;
-    opacity: 0.5;
-}
-
-.background-wrapper::before {
-    width: 20px;
-    height: 20px;
-    top: 10%;
-    left: 15%;
-    animation-delay: 2s;
-}
-
-.background-wrapper::after {
-    width: 30px;
-    height: 30px;
-    bottom: 5%;
-    right: 20%;
-    animation-delay: 5s;
-}
-
-@keyframes floating {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-30px) scale(1.2); }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 .container {
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    backdrop-filter: blur(10px); /* 磨砂玻璃效果 */
+    backdrop-filter: blur(10px);
     background: none;
     border-radius: 20px;
     overflow: hidden;
+    position: relative; /* 确保内容区在上层 */
 }
 
 /* 卡片样式和动画 */
@@ -107,7 +88,10 @@ h1, h2 {
     margin-bottom: 25px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative; /* 为伪元素定位 */
+    position: relative;
+    /* 滚动视差效果 */
+    transform: translateY(0);
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .info-card {
@@ -119,7 +103,6 @@ h1, h2 {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* 卡片边框闪烁特效 */
 .info-card::before {
     content: '';
     position: absolute;
@@ -146,9 +129,7 @@ h1, h2 {
     100% { background-position: 0% 50%; }
 }
 
-/* 修复头像问题 */
 .avatar-container {
-    /* 移除掉不必要的 width 和 height，让头像自然显示 */
     display: inline-block;
     margin-bottom: 20px;
 }
@@ -158,7 +139,7 @@ h1, h2 {
     height: 120px;
     border-radius: 50%;
     border: 5px solid var(--primary-color);
-    object-fit: cover; /* 确保图片不变形 */
+    object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
