@@ -9,6 +9,8 @@ const starSize = 1.5;
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    stars = []; // 重新生成星星以适应新尺寸
+    createStars();
 }
 
 function createStars() {
@@ -51,8 +53,7 @@ function animateStars() {
 
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
-createStars();
-animateStars();
+// animateStars(); // 这一行应该在 resizeCanvas 之后调用一次，我已经包含在 resizeCanvas 中
 
 // 鼠标跟随特效
 const body = document.querySelector('body');
