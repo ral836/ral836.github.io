@@ -77,3 +77,25 @@ document.addEventListener('mousemove', (e) => {
     follower.style.left = `${e.clientX}px`;
     follower.style.top = `${e.clientY}px`;
 });
+
+// Giscus 留言板配置
+function loadGiscus() {
+    const giscusContainer = document.getElementById('giscus-container');
+    const script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.setAttribute('data-repo', 'ral836/ral836.github.io'); // 替换为你的仓库名
+    script.setAttribute('data-repo-id', 'R_kgDOPWAl3g'); // 替换为你的仓库ID，在仓库设置中可找到
+    script.setAttribute('data-category', 'Q&A'); // 替换为你的讨论分类
+    script.setAttribute('data-category-id', 'DIC_kwDOPWAl3s4CtyoL'); // 替换为你的分类ID
+    script.setAttribute('data-mapping', 'pathname');
+    script.setAttribute('data-strict', '0');
+    script.setAttribute('data-reactions-enabled', '1');
+    script.setAttribute('data-emit-metadata', '0');
+    script.setAttribute('data-input-position', 'top');
+    script.setAttribute('data-theme', 'light');
+    script.setAttribute('data-lang', 'zh-CN');
+    script.setAttribute('crossorigin', 'anonymous');
+    script.setAttribute('async', '');
+    giscusContainer.appendChild(script);
+}
+loadGiscus();
